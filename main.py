@@ -4,10 +4,10 @@ from geometry import *
 
 
 class Window:
-    def __init__(self, widht, height) -> None:
+    def __init__(self, width, height) -> None:
         self.__root = Tk()
         self.__root.title("Maze Solver")
-        self.__canvas = Canvas()
+        self.__canvas = Canvas(width=width, height=height)
         self.__canvas.pack()
         self.is_running = False
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
