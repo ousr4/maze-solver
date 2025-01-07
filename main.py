@@ -30,7 +30,21 @@ class Window:
 
 def main():
     win = Window(800, 600)
-    win.draw_line(Line(Point(50, 50), Point(200, 200)), "Black")
+    cell = Cell(win)
+    cell.has_left_wall = False
+    cell.draw(10, 10, 60, 60)
+
+    cell = Cell(win)
+    cell.has_rigth_wall = False
+    cell.draw(100, 100, 150, 150)
+
+    cell = Cell(win)
+    cell.has_top_wall = False
+    cell.draw(225, 225, 275, 275)
+
+    cell = Cell(win)
+    cell.has_bottom_wall = False
+    cell.draw(300, 300, 350, 350)
     win.wait_for_close()
 
 
