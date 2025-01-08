@@ -34,9 +34,11 @@ def main():
     cell.has_left_wall = False
     cell.draw(10, 10, 60, 60)
 
-    cell = Cell(win)
-    cell.has_rigth_wall = False
-    cell.draw(100, 100, 150, 150)
+    cell2 = Cell(win)
+    cell2.has_rigth_wall = False
+    cell2.draw(100, 100, 150, 150)
+
+    cell.draw_move(cell2)
 
     cell = Cell(win)
     cell.has_top_wall = False
