@@ -1,6 +1,7 @@
 from tkinter import BOTH, Canvas, Tk
 
 from geometry import *
+from maze import Maze
 
 
 class Window:
@@ -29,24 +30,16 @@ class Window:
 
 
 def main():
-    win = Window(800, 600)
-    cell = Cell(win)
-    cell.has_left_wall = False
-    cell.draw(10, 10, 60, 60)
-
-    cell2 = Cell(win)
-    cell2.has_rigth_wall = False
-    cell2.draw(100, 100, 150, 150)
-
-    cell.draw_move(cell2)
-
-    cell = Cell(win)
-    cell.has_top_wall = False
-    cell.draw(225, 225, 275, 275)
-
-    cell = Cell(win)
-    cell.has_bottom_wall = False
-    cell.draw(300, 300, 350, 350)
+    width = 800
+    height = 600
+    win = Window(width, height)
+    border_size = 10
+    num_cells = 20;
+    space_x = width - 2 * border_size
+    space_y = height - 2 * border_size
+    cell_size_x = space_x / num_cells
+    cell_size_y = space_y / num_cells
+    Maze(border_size, border_size, num_cells, num_cells, cell_size_x, cell_size_y, win)
     win.wait_for_close()
 
 
