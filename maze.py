@@ -81,22 +81,24 @@ class Maze:
             if direction_x == i - 1 and direction_y == j:
                 self._cells[i][j].has_left_wall = False
                 self._cells[i - 1][j].has_rigth_wall = False
-                self._break_wall_r(i - 1, j)
             # Visit top neighbour
             if direction_x == i and direction_y == j - 1:
                 self._cells[i][j].has_top_wall = False
                 self._cells[i][j - 1].has_bottom_wall = False
-                self._break_wall_r(i, j - 1)
             # Visit right neighbour
             if direction_x == i + 1 and direction_y == j:
                 self._cells[i][j].has_rigth_wall = False
                 self._cells[i + 1][j].has_left_wall = False
-                self._break_wall_r(i + 1, j)
             # Visit bottom neighbour
             if direction_x == i and direction_y == j + 1:
                 self._cells[i][j].has_bottom_wall = False
                 self._cells[i][j + 1].has_top_wall = False
-                self._break_wall_r(i, j + 1)
+            self._break_wall_r(direction_x, direction_y)
+
+    def _reset_cells_visited(self):
+        for i in range(self.num_rows):
+            for j in range(self.num_cols):
+                self._cells[i][j].visited = False
 
     def _animate(self):
         if self._windows is None:
