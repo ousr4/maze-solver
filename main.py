@@ -34,11 +34,12 @@ def main():
     height = 600
     win = Window(width, height)
     border_size = 10
-    num_cells = 20;
+    num_cells = 20
     space_x = width - 2 * border_size
     space_y = height - 2 * border_size
     cell_size_x = space_x / num_cells
     cell_size_y = space_y / num_cells
+
     Maze(border_size, border_size, num_cells, num_cells, cell_size_x, cell_size_y, win)
     win.wait_for_close()
 
