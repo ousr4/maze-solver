@@ -58,6 +58,8 @@ class Cell:
         self._window.draw_line(bottom_wall, wall_color)
 
     def draw_move(self, to_cell, undo=False):
+        if self._window is None:
+            return
         fill_color = "Red"
         if undo:
             fill_color = "Gray"
@@ -79,8 +81,6 @@ class Cell:
                 to_cell._x1 + (to_cell._x2 - to_cell._x1) / 2,
                 to_cell._y1 + (to_cell._y2 - to_cell._y1) / 2,
             )
-            print(start)
-            print(end)
             line = Line(start, end)
             self._window.draw_line(line, fill_color)
 

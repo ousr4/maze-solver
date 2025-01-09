@@ -40,7 +40,13 @@ def main():
     cell_size_x = space_x / num_cells
     cell_size_y = space_y / num_cells
 
-    Maze(border_size, border_size, num_cells, num_cells, cell_size_x, cell_size_y, win)
+    maze = Maze(
+        border_size, border_size, num_cells, num_cells, cell_size_x, cell_size_y, win
+    )
+    if maze.solve():
+        print("Maze solved succesfully")
+    else:
+        print("Failed to solve maze")
     win.wait_for_close()
 
 
